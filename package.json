@@ -10,7 +10,7 @@
     }
   },
   "scripts": {
-    "commit": "git-cz",
+    "commit": "npm run product && git-cz",
     "install": "symlink-dir . ./node_modules/commitlint-plugin-i18n",
     "lint": "eslint --ext .ts ./src --fix",
     "develop": "rimraf ./libs && tsc --project ./src --outDir ./libs --declaration --watch",

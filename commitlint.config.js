@@ -6,7 +6,6 @@ module.exports = {
     // "type-enum": [2, "never", ['build', 'test']],
     // "body-leading-blank": [2, "never"],
     // "body-max-length": [2, "always", 5],
-    "footer-leading-blank": [2, "always"],
-    
+    "footer-leading-blank": [2, "always"]
   }
 }

@@ -1,3 +1,3 @@
-import index from './zh-CN'
+import index from './i18n/zh-CN'
 
 export = index

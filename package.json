@@ -3,9 +3,18 @@
   "version": "0.0.1",
   "main": "libs/index.js",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "npm run product && commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "scripts": {
+    "commit": "git-cz",
+    "install": "symlink-dir . ./node_modules/commitlint-plugin-i18n",
+    "lint": "eslint --ext .ts ./src --fix",
     "develop": "rimraf ./libs && tsc --project ./src --outDir ./libs --declaration --watch",
-    "release": "rimraf ./libs && tsc --project ./src --outDir ./libs --declaration",
+    "product": "rimraf ./libs && tsc --project ./src --outDir ./libs --declaration",
     "start": "npm run develop"
   },
   "dependencies": {
@@ -16,11 +25,19 @@
     "shelljs": "^0.8.3"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.1.0",
+    "eslint": "^6.8.0",
+    "husky": "^3.1.0",
     "rimraf": "^2.6.2",
+    "symlink-dir": "^3.1.1",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   },
   "peerDependencies": {
-    "@commitlint/lint": "^8.3.4"
+    "@commitlint/lint": "^8.3.4",
+    "commitlint-plugin-i18n": "^0.0.1"
   }
 }

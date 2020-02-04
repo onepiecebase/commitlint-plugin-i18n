@@ -1,7 +1,10 @@
-import spy from './spy'
+import spy from '..//utils/spy'
+import * as Typings from '../typings'
 
-// scope格式提示
-const CharCase = {
+/**
+ * Scope 格式提示
+ */
+const CharCase: Typings.TranslationTypes = {
   'lower-case': '小写',
   'upper-case': '大写',
   'camel-case': '驼峰',
@@ -12,9 +15,10 @@ const CharCase = {
   'start-case': '首字母大写',
 }
 
-
-// Type类型提示
-const TypeEnum = {
+/**
+ * Type 类型提示
+ */
+const TypeEnum: Typings.TranslationTypes = {
   'build': 'todo build',
   'chore': 'todo chore',
   'ci': 'todo ci',
@@ -28,7 +32,11 @@ const TypeEnum = {
   'style': '与代码风格相关的变更，eg: 修正代码风格, ESLint代码格式化',
   'test': '增加新测试或者更正当前已有测试'
 }
-const Messages = {
+
+/**
+ * 错误信息
+ */
+const Messages: Typings.Translations = {
   'type-empty': {
     never: '变更类型不能为空',
     always: '变更类型必须为空'

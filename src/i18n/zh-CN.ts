@@ -76,6 +76,6 @@ const Messages: Typings.Translations = {
   },
 }
 
-export = {
+export default {
   rules: spy(Messages),
 }

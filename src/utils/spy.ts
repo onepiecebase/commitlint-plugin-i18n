@@ -37,6 +37,7 @@ const translate = (type?: 'type-enum') => {
 
 export default function spy(i18n: Typings.Translations): LintRules {
   const rules: LintRules = {}
+
   Object.keys(Rules).forEach((name: string) => {
     const rule: LintRule = Rules[name]
     if (typeof rule !== 'function') {

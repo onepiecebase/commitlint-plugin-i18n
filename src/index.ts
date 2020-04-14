@@ -1,4 +1,11 @@
-console.log('-->')
-import index from './i18n/zh-CN'
+import Locale from 'os-locale'
+import zhCN from './i18n/zh-CN'
 
-export = index
+let defaultsRules = {}
+switch (Locale.sync()) {
+  case 'zh-CN':
+    defaultsRules = zhCN
+    break
+}
+
+export default defaultsRules

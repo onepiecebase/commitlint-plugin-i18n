@@ -1,4 +1,4 @@
-var shell = require('shelljs');
+var shell = require('shelljs')
 
 // 触发提交类型为空 fail
 shell.echo(': test').exec('npx commitlint')

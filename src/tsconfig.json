@@ -1,23 +1,19 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "removeComments": true,
-    "sourceMap": false
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "declaration": true,
+    "resolveJsonModule": true
   },
-  "typeRoots": [
-    "node_modules/@types"
-  ],
-  "include": [
-    "**/*.ts",
-    "**/*.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "include": ["**/*.ts", "**/*.d.ts"],
+  "typeRoots": ["node_modules/@types"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

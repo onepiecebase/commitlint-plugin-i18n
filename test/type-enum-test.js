@@ -1,4 +1,4 @@
-var shell = require('shelljs');
+var shell = require('shelljs')
 
 /* 可配置自定义type rule 
   "type-enum": [2, "never" | "always", ['build', 'test']],

@@ -1,4 +1,4 @@
-var shell = require('shelljs');
+var shell = require('shelljs')
 
 /* 先配置rule 
   "footer-leading-blank": [2, "always"],

@@ -24,6 +24,7 @@ package-lock.json
 # YARN
 yarn.lock
 .yarnrc
+yarn-error.log
 
 
 # Numerous always-ignore extensions

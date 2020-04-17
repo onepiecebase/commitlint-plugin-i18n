@@ -1,4 +1,4 @@
-var shell = require('shelljs');
+var shell = require('shelljs')
 
 /* 先配置rule 
   "footer-leading-blank": [2, "always"],
@@ -8,4 +8,4 @@ var shell = require('shelljs');
 shell.echo('build(): test\n\nodyss\nsdfsd').exec('npx commitlint')
 
 // success
-// shell.echo('build(): test\n\nbodyss\n\n\nsdfsd').exec('npx commitlint')
+shell.echo('build(): test\n\nbodyss\n\n\nsdfsd').exec('npx commitlint')

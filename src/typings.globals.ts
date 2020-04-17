@@ -1,8 +1,8 @@
-interface LintParsed {
+declare interface LintParsed {
   type: string | null
   scope: string | null
   subject: string | null
-  merge: string | null,
+  merge: string | null
   header: string | null
   body: string | null
   footer: string | null
@@ -13,10 +13,10 @@ interface LintParsed {
   raw: string
 }
 
-type LintResult = [boolean, string?]
+declare type LintResult = [boolean, string?]
 
-type LintRule = (parsed: LintParsed, when: string, value: any) => LintResult
+declare type LintRule = (parsed: LintParsed, when: string, value: any) => LintResult
 
-type LintRules = {
+declare type LintRules = {
   [key: string]: LintRule
 }

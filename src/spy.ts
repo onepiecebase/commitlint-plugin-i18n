@@ -2,7 +2,7 @@ import Rules from '@commitlint/rules'
 
 export default function spy () {
   let flag = false
-  return (i18n):LintRules => {
+  return (i18n): LintRules => {
     const rules: LintRules = {}
       Object.keys(Rules).forEach((name: string) => {
         const rule: LintRule = Rules[name]

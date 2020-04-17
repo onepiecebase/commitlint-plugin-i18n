@@ -1,7 +1,10 @@
-import spy from './spy'
+import spy from '..//utils/spy'
+import * as Typings from '../typings'
 
-// scope格式提示
-const CharCase = {
+/**
+ * Scope 格式提示
+ */
+const CharCase: Typings.TranslationTypes = {
   'lower-case': '小写',
   'upper-case': '大写',
   'camel-case': '驼峰',
@@ -12,9 +15,11 @@ const CharCase = {
   'start-case': '首字母大写',
 }
 
-
-// Type类型提示
-const TypeEnum = {
+/**
+ * Type 类型提示
+ */
+const TypeEnum: Typings.TranslationTypes = {
+  pattern: '变更类型(变更范围[可选]): 主题\n<空一行>\ncommit描述内容[可选]\n<空一行>\n脚注(用于描述不兼容变动和关闭ISSUE)[可选]\n',
   build: '涉及构建工具或构建过程等的变动, eg: 修改webpack配置, 关联包升级等.',
   chore: '杂类, 不属于以上类型的其他类.',
   ci: '修改项目持续集成流程, eg: Travis, Jenkins, GitLab CI, Circle等.',
@@ -29,12 +34,13 @@ const TypeEnum = {
   test: '增加新测试或者更正当前已有测试.'
 }
 
-// 整体格式提示
-const Messages = {
-  pattern: '变更类型(变更范围[可选]): 主题\n<空一行>\ncommit描述内容[可选]\n<空一行>\n脚注(用于描述不兼容变动和关闭ISSUE)[可选]\n',
+/**
+ * 错误信息
+ */
+const Messages: Typings.Translations = {
   'type-empty': {
     never: '变更类型不能为空',
-    always: '变更类型必须为空'
+    always: '变更类型必须为空',
   },
   'type-enum': {
     value: TypeEnum,
@@ -44,12 +50,12 @@ const Messages = {
   'type-case': {
     value: CharCase,
     never: '变更类型不能为: {value}',
-    always: '变更类型必须为: {value}'
+    always: '变更类型必须为: {value}',
   },
   'scope-case': {
     value: CharCase,
     never: '头部不能为{value}',
-    always: '头部必须为{value}'
+    always: '头部必须为{value}',
   },
   'subject-case': {
     value: CharCase,
@@ -63,7 +69,7 @@ const Messages = {
   'body-max-length': {
     // 此条规则设置never 和 always无效
     never: 'body字数不能超过{value}个字符',
-    always: 'body字数不能超过{value}个字符'
+    always: 'body字数不能超过{value}个字符',
   },
   'body-min-length': {
     // 此条规则设置never 和 always无效
@@ -73,7 +79,7 @@ const Messages = {
   'body-max-line-length': {
     // 此条规则设置never 和 always无效
     never: 'body行数不能超过{value}行',
-    always: 'body行数不能超过{value}行'
+    always: 'body行数不能超过{value}行',
   },
   'footer-leading-blank': {
     never: '编辑footer时, 不能以空白行为开始',
@@ -97,5 +103,5 @@ const Messages = {
 }
 
 export = {
-  rules: spy()(Messages)
+  rules: spy(Messages)
 }

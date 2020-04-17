@@ -5,7 +5,7 @@ var shell = require('shelljs');
 */
 
 // fail
-shell.echo('build(): test\n\nbodyss\nsdfsd').exec('npx commitlint')
+shell.echo('build(): test\n\nodyss\nsdfsd').exec('npx commitlint')
 
 // success
-shell.echo('build(): test\n\nbodyss\n\n\nsdfsd').exec('npx commitlint')
+// shell.echo('build(): test\n\nbodyss\n\n\nsdfsd').exec('npx commitlint')

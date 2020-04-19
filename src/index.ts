@@ -8,4 +8,4 @@ switch (Locale.sync()) {
     break
 }
 
-export default defaultsRules
+module.exports = defaultsRules

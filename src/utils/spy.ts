@@ -35,32 +35,40 @@ const translate = (type?: 'type-enum') => {
   }
 }
 
-export default function spy(i18n: Typings.Translations): LintRules {
-  const rules: LintRules = {}
-  Object.keys(Rules).forEach((name: string) => {
-    const rule: LintRule = Rules[name]
-    if (typeof rule !== 'function') {
-      return
-    }
-
-    rules[name] = (parsed: LintParsed, when: string, value: string | string[]): LintResult => {
-      const [passed, originMessage] = rule(parsed, when, value)
-      if (passed === true) {
-        return [true]
+export default function spy() {
+  // 全局格式输出格式
+  let flag = false
+  return (i18n: Typings.Translations, pattern: string): LintRules => {
+    const rules: LintRules = {}
+    Object.keys(Rules).forEach((name: string) => {
+      const rule: LintRule = Rules[name]
+      if (typeof rule !== 'function') {
+        return
       }
+      rules[name] = (parsed: LintParsed, when: string, value: string | string[]): LintResult => {
+        const [passed, originMessage] = rule(parsed, when, value)
+        if (passed === true) {
+          return [true]
+        }
 
-      const translator = i18n[name]
-      if (!translator) {
-        return [false, originMessage]
+        const translator = i18n[name]
+        if (!translator) {
+          return [false, originMessage]
+        }
+        // 只要发生错误就提示整体格式结构
+        if (flag) {
+          pattern = ''
+        } else {
+          flag = true
+          pattern = `commit格式应遵守:\n` + pattern
+        }
+        if (name === 'type-enum') {
+          return [false, `${pattern}\n${translate('type-enum')(translator, when, value)} (${originMessage})`]
+        }
+
+        return [false, `${pattern}\n${translate()(translator, when, value)} (${originMessage})`]
       }
-
-      if (name === 'type-enum') {
-        return [false, `${translate('type-enum')(translator, when, value)} (${originMessage})`]
-      }
-
-      return [false, `${translate()(translator, when, value)} (${originMessage})`]
-    }
-  })
-
-  return rules
+    })
+    return rules
+  }
 }

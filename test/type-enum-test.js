@@ -5,7 +5,7 @@ var shell = require('shelljs')
 */
 
 // 触发提交类型 fail
-shell.echo('far(): test').exec('npx commitlint')
+shell.echo('far(): Test').exec('npx commitlint')
 
 // 触发提交类型 success
 shell.echo('build(): test').exec('npx commitlint')

@@ -3,6 +3,12 @@
   "version": "0.0.1",
   "main": "libs/index.js",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "npm run product && commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "lint-staged": {
     "**/*.{md,json,yml,ts,tsx,d.ts}": [
       "npm run lint-stage:format",

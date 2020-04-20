@@ -101,7 +101,7 @@ const Messages: Typings.Translations = {
   },
 }
 // 全局格式
-const pattern = '变更类型(变更范围[可选]): 主题\n<空一行>\ncommit描述内容[可选]\n<空一行>\n脚注(用于描述不兼容变动和关闭ISSUE)[可选]\n'
+const pattern = 'commit格式规范如下:\n变更类型(变更范围[可选]): 主题\n<空一行>\ncommit描述内容[可选]\n<空一行>\n脚注(用于描述不兼容变动和关闭ISSUE)[可选]\n'
 
 export = {
   rules: spy()(Messages, pattern),

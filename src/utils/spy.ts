@@ -60,7 +60,6 @@ export default function spy() {
           pattern = ''
         } else {
           flag = true
-          pattern = `commit格式应遵守:\n` + pattern
         }
         if (name === 'type-enum') {
           return [false, `${pattern}\n${translate('type-enum')(translator, when, value)} (${originMessage})`]

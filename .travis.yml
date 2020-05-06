@@ -1,0 +1,28 @@
+language: node_js
+sudo: false
+node_js:
+  - 12
+
+cache:
+  yarn: true
+  directories:
+    - node_modules
+
+install:
+  - yarn install
+
+script:
+  - yarn test
+  - yarn product
+
+before_deploy:
+  - yarn product
+
+deploy:
+  - provider: npm
+    skip_cleanup: true
+    on:
+      tags: true
+    email: qowera@qq.com
+    api_key:
+      secure: KARzgv2vypTwNksxB0QWhiQ+KZqQ0fhXla1Qmur2tIeBmdJfQxuhesuxJH9XiFsJ74VX2gmt/T65We8IRWJxe8/TBaR7duRNtWEsH6fiSyN37ZZIBTvVhzBKbATYtxgbaYA4fL4nfyR7bm0Vh0H+lZp5pbagdrKKfeJn9ZJQTK4l0pob4IQGR5CAH21cImm0/8thUpghirHe3UVrUF6G+Nk8IeB9xIT0OqN4WfINFgghc8s2EjUQqVkFl5ACJ9ngTFVnAQzTDZnCB3Trt3Is/k8oLD/l6cnalwN9/LU89nKgEN/w5JBtvjPr9uxUBfIlnCR8NmKulAIg1UYVawN1omktFDgURAa/wQgQc059m4J22PiXTmwRqUBeuWN0QXnuAQYq72s5CRiklgkM6w/gYN4yPDaMwonRKiKGKSIkVtXFVDoH5iBe1xknWg8eSaPmefKTYsWZlXlPPp23CNy6EMFcnO/YU1AUIwiDP+wmJ7+S7o0X5bHZFgi7Kp74WXVkxqaw9rWj5MHC19+OU3U5yDCZmXIdG1HWppblOLiQrCfSlHNpEvmb8ztCUyIaKZrpx5W86H3y5x4ZY8KzXb6mYFCgJLqk7klSS+flpAYAlhTh7Bp/22Rzod6V/RRTFtZ886gapkX8Fduuhj95gGYEmhqA0lVSi0swLvjOWQeq0Ao=

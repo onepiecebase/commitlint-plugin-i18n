@@ -3,7 +3,7 @@ export interface TranslationTypes {
 }
 
 export interface TranslationRule {
-  value?: { [key: string]: any }
+  value?: { [key: string]: any; }
   never: string
   always: string
 }

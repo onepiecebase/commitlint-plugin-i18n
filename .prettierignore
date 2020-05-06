@@ -1,2 +1,4 @@
-./libs
-node_modules
+# Folder
+
+/libs
+/node_modules

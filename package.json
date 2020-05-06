@@ -1,6 +1,6 @@
 {
   "name": "commitlint-plugin-i18n",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.3",
   "main": "libs/index.js",
   "license": "MIT",
   "husky": {
@@ -28,12 +28,12 @@
     "lint-stage:format": "prettier --config .prettierrc.js --write --",
     "lint-stage:lint:ts": "eslint --config .eslintrc.js --ext .ts --fix --",
     "lint-stage:lint:test:ts": "eslint --config ./test/.eslintrc.js --ext .ts --fix --",
-    "install": "symlink-dir . ./node_modules/commitlint-plugin-i18n",
     "format": "prettier --config .prettierrc.js --write \"**/*.{js,jsx,ts,tsx,d.ts,md,json,yml,yaml}\"",
     "lint:ts": "eslint --config .eslintrc.js --ext .ts ./src --fix && eslint --config ./test/.eslintrc.js --ext .ts ./test --fix",
     "lint": "npm run lint:ts",
     "unitest": "ts-mocha --paths -p ./test/tsconfig.json test/**/*.spec.ts",
     "unitest:watch": "npm run unitest -- --watch --watch-files \"src/**/*.ts,test/**/*.spec.ts\" -R min",
+    "pretest": "symlink-dir . ./node_modules/commitlint-plugin-i18n",
     "test": "npm run product && npm run unitest",
     "develop": "rimraf ./libs && tsc --project ./src --outDir ./libs --declaration --watch",
     "product": "rimraf ./libs && tsc --project ./src --outDir ./libs --declaration",

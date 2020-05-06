@@ -7,7 +7,10 @@ chai.use(chaiAsPromised)
 const expect = chai.expect
 
 describe('测试 type-empty-test 配置', () => {
-  it('能识别提交信息格式错误, 并返回相应语言错误信息', async () => {
+  it('能返回中文错误信息', async () => {
+    // eslint-disable-next-line @typescript-eslint/camelcase
+    process.env.commitlint_plugin_i18n = 'zh-CN'
+
     const config = 'test/unitest/type-empty-test.config.js'
 
     const rejection = await expect(commitlint(': test', config)).to.be.rejected
